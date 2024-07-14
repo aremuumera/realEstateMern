@@ -5,7 +5,9 @@ const io = new Server({
   cors: {
     origin: "https://realestatemern-1-qgpr.onrender.com",
     credentials:true,            
-    optionSuccessStatus:200  
+    optionSuccessStatus:200,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]  
   },
 });
 
