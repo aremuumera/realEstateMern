@@ -12,7 +12,7 @@ import cors from 'cors'
 const app = express();
 
 const allowedOrigins = [
-    // 'https://real-estate-three-orcin.vercel.app',
+    'https://real-estate-three-orcin.vercel.app/',
     'https://realestatemern-1-qgpr.onrender.com'
   ];
   app.use(cors( {
