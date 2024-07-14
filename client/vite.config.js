@@ -14,4 +14,12 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000, // Increase this limit if necessary
   },
+  server: {
+    proxy: {
+      '/posts': {
+        target: 'https://realestatemern-1-qgpr.onrender.com',
+        changeOrigin: true,
+      }
+    }
+  }
 });
