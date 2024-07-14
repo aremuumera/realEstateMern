@@ -15,7 +15,9 @@ app.use(cors({
     // origin:"http://localhost:5174",
     origin: "https://realestatemern-1-qgpr.onrender.com",
     credentials:true,            
-    optionSuccessStatus:200
+    optionSuccessStatus:200,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]
 }));
 app.use(express.json());
 app.use(cookieParser());
@@ -33,6 +35,9 @@ app.use("/api/message", messageRoute);
 app.get("/", (req, res) => {
     res.send("Welcome to your Yikes estate");
   });
+
+
+
 
 app.listen(8000, () => {
     console.log("Server is running on port 8800");
