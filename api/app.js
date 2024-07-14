@@ -12,11 +12,18 @@ import cors from 'cors'
 const app = express();
 
 const allowedOrigins = [
-    'https://real-estate-three-orcin.vercel.app/',
+    // 'https://real-estate-three-orcin.vercel.app',
     'https://realestatemern-1-qgpr.onrender.com'
   ];
   app.use(cors( {
-      origin: allowedOrigins,
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+  },
       credentials:true,            
       optionSuccessStatus:200,
       methods: ["GET", "POST", "PUT", "DELETE"],
