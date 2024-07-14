@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors({
     // origin:"http://localhost:5174",
-    origin: "https://realestatemern-1-qgpr.onrender.com",
+    origin: ["https://realestatemern-1-qgpr.onrender.com", "https://real-estate-three-orcin.vercel.app"],
     credentials:true,            
     optionSuccessStatus:200,
     methods: ["GET", "POST", "PUT", "DELETE"],

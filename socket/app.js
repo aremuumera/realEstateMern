@@ -3,7 +3,7 @@ import { Server } from "socket.io";
 // Initialize Socket.IO server
 const io = new Server({
   cors: {
-    origin: ["https://realestatemern-1-qgpr.onrender.com", "https://real-estate-three-orcin.vercel.app"],
+    origin: ["https://realestatemern-1-qgpr.onrender.com", ],
     credentials:true,            
     optionSuccessStatus:200,
     methods: ["GET", "POST", "PUT", "DELETE"],
