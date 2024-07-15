@@ -19,7 +19,7 @@ const allowedOrigins = [
   'https://realestatemern-1-qgpr.onrender.com'
 ];
 app.use(cors( {
-  origin: allowedOrigins,
+  origin: 'https://realestatemern-1-qgpr.onrender.com',
     credentials:true,            
     optionSuccessStatus:200,
     methods: ["GET", "POST", "PUT", "DELETE"],
