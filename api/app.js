@@ -15,6 +15,20 @@ dotenv.config();
 const app = express();
 
 
+const allowedOrigins = [
+  'https://realestatemern-1-qgpr.onrender.com'
+];
+app.use(cors( {
+  origin: allowedOrigins,
+    credentials:true,            
+    optionSuccessStatus:200,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]  
+  }
+));
+app.use(express.json());
+app.use(cookieParser());
+
 
 // MongoDB Connection
 const connectDB = async () => {
@@ -38,20 +52,6 @@ connectDB();
 
 
 
-
-const allowedOrigins = [
-    'https://realestatemern-1-qgpr.onrender.com'
-  ];
-  app.use(cors( {
-    origin: allowedOrigins,
-      credentials:true,            
-      optionSuccessStatus:200,
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      allowedHeaders: ["Content-Type"]  
-    }
-  ));
-app.use(express.json());
-app.use(cookieParser());
 
 
 app.use("/api/posts", postRoute );
