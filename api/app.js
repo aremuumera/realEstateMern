@@ -8,13 +8,38 @@ import messageRoute from './routes/message.route.js'
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 import dotenv from 'dotenv';
+import mongoose from "mongoose";
 dotenv.config();
 
 
 const app = express();
 
+
+
+// MongoDB Connection
+const connectDB = async () => {
+  try {
+      const conn = await mongoose.connect(process.env.DATABASE_URL, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+      });
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+      console.error(`Error: ${error.message}`);
+      process.exit(1);
+  }
+};
+
+connectDB();
+
+
+
+
+
+
+
+
 const allowedOrigins = [
-    // 'https://real-estate-three-orcin.vercel.app',
     'https://realestatemern-1-qgpr.onrender.com'
   ];
   app.use(cors( {
